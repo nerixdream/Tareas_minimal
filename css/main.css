@@ -1,0 +1,206 @@
+:root {
+	--color_grey: #f1f1f1;
+	--color_white: #ffffff;
+
+	--color-primary: #009394;
+	--color-secundary: #00e0c7;
+	--color-tertiary: #006270;
+
+	--font-primary: 'Quicksand', sans-serif;
+	--font-secundary: 'Poiret One', cursive;
+}
+
+html {
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 16px;
+	background-image: linear-gradient(top left to right bottom, var(--color_grey), var(--color_white));
+}
+
+/* Header */
+.header {
+	padding: 1rem 0;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.header .title {
+	font-family: var(--font-secundary);
+	font-size: 30px;
+	color: var(--color-tertiary);
+	border-bottom: 1px solid var(--color-secundary);
+}
+/* End header */
+
+/* Container */
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 90vh;
+	align-items: center;
+}
+/* End Container */
+
+/* Section todos-list */
+.tareas {
+	width: 90%;
+	margin: 2rem auto 0 auto;
+}
+
+.tareas .tarea_radio {
+	/* margin-right: 1rem; */
+	/* color: var(--color-secundary); */
+	position: absolute;
+	visibility: hidden;
+}
+
+.check {
+	display: block;
+	position: absolute;
+	border: 1px solid var(--color-primary);
+	border-radius: 100%;
+	height: 0.8rem;
+	width: 0.8rem;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	z-index: 5;
+	transition: border 0.25s linear;
+}
+
+input[type='checkbox']:checked ~ .check {
+	border-color: var(--color-secundary);
+}
+
+input[type='checkbox']:checked ~ .check::before {
+	position: absolute;
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	content: '\f00c';
+	border-radius: 100%;
+	height: 0.8rem;
+	width: 0.8rem;
+	top: 1px;
+	left: 1px;
+	color: var(--color-secundary);
+	font-size: 0.5rem;
+}
+
+.tareas .tarea {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1rem;
+	position: relative;
+}
+
+.tareas .tarea-info {
+	display: flex;
+	flex-direction: column;
+	color: var(--color-tertiary);
+	font-family: var(--font-primary);
+	margin-left: 1.6rem;
+}
+
+.tarea-info .tarea-info_titulo {
+	font-size: 1rem;
+}
+
+.tarea-info .tarea-info_fecha {
+	font-size: 0.6rem;
+}
+
+.tareas .tarea_borrar {
+	margin-left: auto;
+	font-size: 0.8rem;
+	background: var(--color-primary);
+	color: var(--color_white);
+	padding: 0.7rem;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	transition: all 0.3s ease;
+}
+
+.tarea_borrar:hover {
+	background: var(--color-tertiary);
+	cursor: pointer;
+}
+/* End section todos-list */
+
+/* New todo */
+.nueva-tarea {
+	width: 90%;
+	margin-top: auto;
+	position: relative;
+}
+
+.nueva-tarea input {
+	width: 100%;
+	background: var(--color-primary);
+	padding: 1rem;
+	font-size: 0.9rem;
+	border: none;
+	font-weight: bold;
+	font-family: var(--font-primary);
+	color: var(--color_white);
+	outline: none;
+}
+
+.nueva-tarea input::placeholder {
+	color: var(--color_white);
+}
+
+.nueva-tarea .btn-agregar {
+	color: var(--color_white);
+	background: var(--color-tertiary);
+	position: absolute;
+	right: -0.8rem;
+	top: 50%;
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+	border: 1px solid white;
+	transform: translateY(-50%);
+	cursor: pointer;
+	outline: none;
+	transition: all 0.3s ease;
+}
+
+.btn-agregar:active {
+	height: 1.9rem;
+	width: 1.9rem;
+	background: var(--color-primary);
+}
+
+/* Footer */
+
+.footer {
+	background: #000;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	padding: 0.5rem;
+}
+
+.footer p {
+	color: var(--color_white);
+	font-size: 0.6rem;
+	font-family: var(--font-primary);
+	font-weight: 300;
+}
+
+.footer p span {
+	font-weight: bold;
+	color: var(--color-primary);
+}
+
+/* End footer */
