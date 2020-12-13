@@ -23,7 +23,15 @@ html {
 
 body {
 	font-size: 16px;
-	background-image: linear-gradient(top left to right bottom, var(--color_grey), var(--color_white));
+	/* background-image: linear-gradient(top left to right bottom, var(--color_grey), var(--color_white)); */
+	background-color: var(--color_grey);
+}
+
+.main {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 /* Header */
@@ -53,7 +61,9 @@ body {
 /* Section todos-list */
 .tareas {
 	width: 90%;
-	margin: 2rem auto 0 auto;
+	margin: 1rem auto 0 auto;
+	height: 65vh;
+	overflow: scroll;
 }
 
 .tareas .tarea_radio {
@@ -112,10 +122,12 @@ input[type='checkbox']:checked ~ .check::before {
 
 .tarea-info .tarea-info_titulo {
 	font-size: 1rem;
+	transition: all 0.3s ease;
 }
 
 .tarea-info .tarea-info_fecha {
 	font-size: 0.6rem;
+	transition: all 0.3s ease;
 }
 
 .tareas .tarea_borrar {
@@ -154,6 +166,13 @@ input[type='checkbox']:checked ~ .check::before {
 	outline: none;
 }
 
+.nueva-tarea input:focus {
+	background: var(--color-primary);
+}
+.nueva-tarea input:scope {
+	background: var(--color-primary);
+}
+
 .nueva-tarea input::placeholder {
 	color: var(--color_white);
 }
@@ -185,8 +204,8 @@ input[type='checkbox']:checked ~ .check::before {
 .footer {
 	background: #000;
 	width: 100%;
-	position: fixed;
-	bottom: 0;
+	/* position: fixed;
+	bottom: 0; */
 	text-align: center;
 	padding: 0.5rem;
 }
@@ -204,3 +223,15 @@ input[type='checkbox']:checked ~ .check::before {
 }
 
 /* End footer */
+
+/* Agrega estilos al titulo y fecha de la tarea cuando este activo el checkbox */
+input[type='checkbox']:checked + .tarea-info .tarea-info_titulo {
+	text-decoration: line-through;
+	color: var(--color-tertiary);
+	opacity: 0.6;
+}
+
+input[type='checkbox']:checked + .tarea-info .tarea-info_fecha {
+	color: var(--color-tertiary);
+	opacity: 0.6;
+}
